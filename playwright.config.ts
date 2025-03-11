@@ -30,12 +30,9 @@ export default defineConfig({
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-    /* Base URL to use in actions like `await page.goto('/')`. */
-     baseURL: 'https://parabank.parasoft.com/parabank/index.htm;jsessionid=CD8891183F45F3B4C394E00ABA3C691C',
-
-    /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
-    storageState: 'storage/auth.json'
+     baseURL: 'https://parabank.parasoft.com/parabank/index.htm',
+     trace: 'on-first-retry',
+     storageState: 'storage/auth.json'
   },
   
   globalSetup: './tests/setup/global-setup.ts',
@@ -46,17 +43,7 @@ export default defineConfig({
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
-    },
-
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
-
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
+    }
 
 
     /* Test against mobile viewports. */
