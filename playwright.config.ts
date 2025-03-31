@@ -1,9 +1,6 @@
-import { defineConfig, devices } from '@playwright/test';
-import { RegistrationEnvironments } from './environments/registrationEnvironments';
-import { RegistrationPage } from './POMs/registrationPage';
-
-
-
+import { defineConfig, devices } from "@playwright/test";
+import { RegistrationEnvironments } from "./environments/registrationEnvironments";
+import { RegistrationPage } from "./POMs/registrationPage";
 
 /**
  * Read environment variables from file.
@@ -17,7 +14,7 @@ import { RegistrationPage } from './POMs/registrationPage';
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  testDir: './tests',
+  testDir: "./tests",
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -27,24 +24,22 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  reporter: "html",
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-     baseURL: 'https://parabank.parasoft.com/parabank/index.htm',
-     trace: 'on-first-retry',
-     storageState: 'storage/auth.json'
+    baseURL: "https://parabank.parasoft.com/parabank/index.htm",
+    trace: "on-first-retry",
+    storageState: "storage/auth.json",
   },
-  
-  globalSetup: './tests/setup/global-setup.ts',
 
-  
+  globalSetup: "./tests/setup/global-setup.ts",
+
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
-    }
-
+      name: "chromium",
+      use: { ...devices["Desktop Chrome"] },
+    },
 
     /* Test against mobile viewports. */
     // {
