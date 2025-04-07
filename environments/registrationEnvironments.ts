@@ -1,4 +1,7 @@
 import { Page } from "@playwright/test";
+import { config } from "dotenv";
+config();
+
 
 export class RegistrationEnvironments {
   page: Page;
@@ -15,15 +18,16 @@ export class RegistrationEnvironments {
 
   constructor(page: Page) {
     this.page = page;
-    this.firstName = "Test";
-    this.lastName = "User";
-    this.address = "Street 285";
-    this.city = "Osijek";
-    this.state = "Croatia";
-    this.zipCode = "31000";
-    this.phone = "0998554226";
-    this.ssn = "123456";
+    this.firstName = process.env.FIRST_NAME || "";
+    this.lastName = process.env.LAST_NAME || "";
+    this.address = process.env.ADDRESS || "";
+    this.city = process.env.CITY || "";
+    this.state = process.env.STATE || "";
+    this.zipCode = process.env.ZIP_CODE || "";
+    this.phone = process.env.PHONE || "";
+    this.ssn = process.env.SSN || "";
     this.username = `user_${Date.now()}`;
-    this.password = "password123";
+    this.password = process.env.PASSWORD || "";
   }
+  
 }

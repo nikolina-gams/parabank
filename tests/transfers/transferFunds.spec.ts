@@ -2,13 +2,30 @@ import { test } from "@playwright/test";
 import { TransferFundsPage } from "../../POMs/transferFundsPage";
 import { TransferFundsEnvironments } from "../../environments/transferFundsEnvironments";
 
-test("Successfully transfer funds", async ({ page }) => {
-  const transferFundsPage = new TransferFundsPage(page);
-  const transferFundsEnvironments = new TransferFundsEnvironments(page);
+test.describe("Tests for transvering funds", () => {
+let transferFundsPage;
+let transferFundsEnvironments; 
 
+test.beforeEach(async ({ page }) => {
+   // Given (user is on loan request page)
+  transferFundsPage = new TransferFundsPage(page);
+  transferFundsEnvironments = new TransferFundsEnvironments(page);
   await page.goto("/");
-  await transferFundsPage.transferIsSuccessful(
-    transferFundsEnvironments.amountToTransfer,
-  );
-  await transferFundsPage.assertSuccessTransfer();
+});
+
+
+test("Successfully transfer funds", async ({ page }) => {
+  // When (user fills and submits the transfer funds form with valid data)
+  await transferFundsPage.transferIsSuccessful(transferFundsEnvironments.amountToTransfer);
+  // Then (transfer of funds is sucessful)
+  await transferFundsPage.assertTransferIsSuccessful();
+});
+
+test("Unsuccessfully transfer funds - mandatory field is empty", async ({ page }) => {
+  // When (user fills and submits the transfer funds form with mandatory field empty)
+await transferFundsPage.trasferIsNotSuccessful();
+// Then (transfer fails and error message is shown)
+await transferFundsPage.assertTransferIsNotSuccessful();
+
+});
 });

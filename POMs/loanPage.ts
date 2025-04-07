@@ -21,7 +21,7 @@ export class LoanPage {
     this.statusDenied = page.getByRole("cell", { name: "Denied" });
   }
 
-  async deniedLoan(loanAmount: string, downPayment: string) {
+  async denyLoan(loanAmount: string, downPayment: string) {
     await this.requestLoanLink.click();
     await this.loanAmountField.fill(loanAmount);
     await this.downPaymentField.fill(downPayment);
@@ -29,7 +29,7 @@ export class LoanPage {
     await this.applyNowButton.click();
   }
 
-  async assertDeniedLoan() {
+  async assertLoanIsDenied() {
     await this.statusDenied.isVisible();
   }
 }

@@ -7,7 +7,7 @@ export class LoanEnvironments {
 
   constructor(page: Page) {
     this.page = page;
-    this.loanAmount = "1200";
-    this.downPayment = "200";
+    this.loanAmount = "12000";
+    this.downPayment = "0";
   }
 }
