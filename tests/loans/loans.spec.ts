@@ -16,7 +16,7 @@ test.describe("Tests for requesting loans", () => {
 
 test("Loan is denied if mandatory field is left empty", async ({ page }) => {
   // When (user submits loan form with missing mandatory data)
-  await loanPage.denyLoan(loanEnvironments.loanAmount,loanEnvironments.downPayment);
+  await loanPage.submitLoanWithEmptyMandatoryField(loanEnvironments.loanAmount);
   // Then (loan request should be denied)
   await loanPage.assertLoanIsDenied();
 });

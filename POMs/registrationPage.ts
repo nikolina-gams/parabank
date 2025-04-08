@@ -13,9 +13,9 @@ export class RegistrationPage {
   readonly ssn: Locator;
   readonly username: Locator;
   readonly password: Locator;
-  readonly confirm: Locator;
+  readonly confirmPassword: Locator;
   readonly registerButton: Locator;
-  readonly successRegister: Locator;
+  readonly successfulRegister: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -30,9 +30,9 @@ export class RegistrationPage {
     this.ssn = page.locator('[id="customer\\.ssn"]');
     this.username = page.locator('[id="customer\\.username"]');
     this.password = page.locator('[id="customer\\.password"]');
-    this.confirm = page.locator("#repeatedPassword");
+    this.confirmPassword = page.locator("#repeatedPassword");
     this.registerButton = page.getByRole("button", { name: "Register" });
-    this.successRegister = page.getByText("Your account was created");
+    this.successfulRegister = page.getByText("Your account was created");
   }
 
   async registerNewUser(
@@ -58,10 +58,10 @@ export class RegistrationPage {
     await this.ssn.fill(ssn);
     await this.username.fill(username);
     await this.password.fill(password);
-    await this.confirm.fill(password);
+    await this.confirmPassword.fill(password);
     await this.registerButton.click();
   }
   async assertRegistrationIsSuccessful() {
-    await expect(this.successRegister).toBeVisible();
+    await expect(this.successfulRegister).toBeVisible();
   }
 }

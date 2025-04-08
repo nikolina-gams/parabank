@@ -7,9 +7,9 @@ export class TransferFundsPage {
     readonly amountField: Locator;
     readonly fromAccountField: Locator;
     readonly toAccountField: Locator;
-    readonly trasnferButton: Locator;
-    readonly successTransfer: Locator;
-    readonly unsuccessTransfer: Locator;
+    readonly transferButton: Locator;
+    readonly successfulTransfer: Locator;
+    readonly unsuccessfulTransfer: Locator;
     
     constructor(page: Page) {
         this.page = page;
@@ -17,30 +17,30 @@ export class TransferFundsPage {
         this.amountField = page.locator('#amount');
         this.fromAccountField = page.locator('#fromAccountId')
         this.toAccountField = page.locator('#toAccountId');
-        this.trasnferButton = page.getByRole('button', { name: 'Transfer' })
-        this.successTransfer = page.getByRole('heading', { name: 'Transfer Complete!' })
-        this.unsuccessTransfer = page.getByRole('heading', { name: 'Error!' })
+        this.transferButton = page.getByRole('button', { name: 'Transfer' })
+        this.successfulTransfer = page.getByRole('heading', { name: 'Transfer Complete!' })
+        this.unsuccessfulTransfer = page.getByRole('heading', { name: 'Error!' })
     }
 
-    async transferIsSuccessful(amountToTransfer: string){
+    async submitValidTransferForm(amountToTransfer: string){
         await this.transferFundsLink.click();
         await this.amountField.fill(amountToTransfer);
         await this.fromAccountField.click();
         await this.toAccountField.click();
-        await this.trasnferButton.click();
+        await this.transferButton.click();
         
     }
     async assertTransferIsSuccessful(){
-        await this.successTransfer.isVisible();
+        await this.successfulTransfer.isVisible();
     }
-    async trasferIsNotSuccessful(){
+    async submitTransferFormWithEmptyMandatoryFields(){
         await this.transferFundsLink.click();
         await this.amountField.click();
         await this.fromAccountField.click();
         await this.toAccountField.click();
-        await this.trasnferButton.click();
+        await this.transferButton.click();
     }
     async assertTransferIsNotSuccessful(){
-        await this.unsuccessTransfer.isVisible();
+        await this.unsuccessfulTransfer.isVisible();
     }
     }
