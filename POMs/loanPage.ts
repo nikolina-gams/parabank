@@ -21,7 +21,7 @@ export class LoanPage {
     this.statusDenied = page.getByRole("cell", { name: "Denied" });
   }
 
-  async submitLoanWithEmptyMandatoryField(loanAmount: string) {
+  async submitLoanWithEmptyDownPaymnentField(loanAmount: string) {
     await this.requestLoanLink.click();
     await this.loanAmountField.fill(loanAmount);
     await this.downPaymentField.click();
