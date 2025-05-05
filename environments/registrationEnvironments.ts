@@ -18,16 +18,16 @@ export class RegistrationEnvironments {
 
   constructor(page: Page) {
     this.page = page;
-    this.firstName = process.env.FIRST_NAME || "";
-    this.lastName = process.env.LAST_NAME || "";
-    this.address = process.env.ADDRESS || "";
-    this.city = process.env.CITY || "";
-    this.state = process.env.STATE || "";
-    this.zipCode = process.env.ZIP_CODE || "";
-    this.phone = process.env.PHONE || "";
-    this.ssn = process.env.SSN || "";
+    this.firstName = process.env.PARABANK_FIRST_NAME || "Test";
+    this.lastName = process.env.PARABANK_LAST_NAME || "User";
+    this.address = process.env.PARABANK_ADDRESS || "";
+    this.city = process.env.PARABANK_CITY || "";
+    this.state = process.env.PARABANK_STATE || "";
+    this.zipCode = process.env.PARABANK_ZIP_CODE || "";
+    this.phone = process.env.PARABANK_PHONE || "";
+    this.ssn = process.env.PARABANK_SSN || "";
     this.username = `user_${Date.now()}`;
-    this.password = process.env.PASSWORD || "";
+    this.password = process.env.PARABANK_PASSWORD || "";
   }
   
 }

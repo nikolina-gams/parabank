@@ -11,6 +11,15 @@ jobs:
     env:
       VALID_USERNAME: ${{ secrets.EMAIL_USERNAME }}
       VALID_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+      PARABANK_FIRST_NAME: ${{ secrets.PARABANK_FIRST_NAME }}
+      PARABANK_LAST_NAME: ${{ secrets.PARABANK_LAST_NAME }}
+      PARABANK_ADDRESS: ${{ secrets.PARABANK_ADDRESS }}
+      PARABANK_CITY: ${{ secrets.PARABANK_CITY }}
+      PARABANK_STATE: ${{ secrets.PARABANK_STATE }}
+      PARABANK_ZIP_CODE: ${{ secrets.PARABANK_ZIP_CODE }}
+      PARABANK_PHONE: ${{ secrets.PARABANK_PHONE }}
+      PARABANK_SSN: ${{ secrets.PARABANK_SSN }}
+      PARABANK_PASSWORD: ${{ secrets.PARABANK_PASSWORD }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
