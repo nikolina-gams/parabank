@@ -9,8 +9,8 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     env:
-      VALID_USERNAME: ${{ secrets.EMAIL_USERNAME }}
-      VALID_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+      EMAIL_USERNAME: ${{ secrets.EMAIL_USERNAME }}
+      EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
       PARABANK_FIRST_NAME: ${{ secrets.PARABANK_FIRST_NAME }}
       PARABANK_LAST_NAME: ${{ secrets.PARABANK_LAST_NAME }}
       PARABANK_ADDRESS: ${{ secrets.PARABANK_ADDRESS }}
