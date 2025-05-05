@@ -62,6 +62,8 @@ export class RegistrationPage {
     await this.registerButton.click();
   }
   async assertRegistrationIsSuccessful() {
-    await expect(this.successfulRegister).toBeVisible({ timeout: 1000});
+    await this.page.waitForLoadState('networkidle');
+    await expect(this.successfulRegister).toBeVisible({ timeout: 5000 });
+
   }
 }

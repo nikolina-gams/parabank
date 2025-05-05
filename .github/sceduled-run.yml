@@ -7,7 +7,7 @@ on:
 
 jobs:
   test:
-  timeout-minutes: 60
+    timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -67,4 +67,4 @@ jobs:
           to: ${{ secrets.EMAIL_USERNAME }}
           from: "GitHub Actions ${{ secrets.EMAIL_USERNAME }}"
           attachments: |
-            playwright-report/test-results/test-report.html
+             playwright-report/index.html
