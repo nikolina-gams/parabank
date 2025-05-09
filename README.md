@@ -19,15 +19,19 @@ npm install
 ```
 npx playwright install
 ```
-### 4. Launch Playwright Codegen (for debugging or writing new tests)
+### 4. Set up environment variables 🔐
+Before running testsm create a ".env" file in the root of the project.
+> ⚠️ Do not commit the `.env` file to version control. Add it to `.gitignore`.
+
+### 5. Launch Playwright Codegen (for debugging or writing new tests)
 ```
 npx playwright codegen
 ```
-### 5. Run all tests with tracing enabled 
+### 6. Run all tests with tracing enabled 
 ```
 npx playwright test --trace on
 ```
-### 6. Open the test report 
+### 7. Open the test report 
 ```
 npx playwright show-report
 ```
