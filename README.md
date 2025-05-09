@@ -20,7 +20,7 @@ npm install
 npx playwright install
 ```
 ### 4. Set up environment variables 🔐
-Before running testsm create a ".env" file in the root of the project.
+Before running tests create a ".env" file in the root of the project.
 > ⚠️ Do not commit the `.env` file to version control. Add it to `.gitignore`.
 
 ### 5. Launch Playwright Codegen (for debugging or writing new tests)
